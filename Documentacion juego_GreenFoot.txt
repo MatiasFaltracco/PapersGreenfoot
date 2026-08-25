@@ -1,0 +1,42 @@
+
+control de ingreso para alumnos para verificar si de verdad son alumnos inscriptos o gente externa. 
+
+Habra una pantalla de inicio (con un png de fondo a modo de decoracion) a la que se le dara play y luego dara paso a la pantalla del juego: un mostrador de secretaria academica. Sobre esta pantalla principal pondré por encima un objeto reloj que se ira actualizando por otra imagen a modo de flip book siempre que pase un minuto. Esto es porque los niveles serán 5 días con un Timer de 5 minutos. Los posibles estudiantes (8 posibles) serán seleccionados al azar y sus credenciales se crearan a partir de un conjunto de elementos dentro de listas (nombres, apellidos, DNI`s, Legajos, Carrera, fecha de nacimiento, edad, fecha de caducidad del dni, nacionalidad, estado de cursado). 
+
+Por cada uno de los 8 posibles estudiantes que aparezcan se barajaran estas variables, apareciendo reveladas al mismo tiempo que el estudiante aparece frente al mostrador, solo que el texto aparecerá sobre espacios del png del escritorio destinados a la tarjeta de DNI (nombre, apellido, DNI, nacionalidad, fecha de nacimiento) y la Ficha de Alumno (nombre y apellido, carrera, estado de carrera, numero de Legajo). 
+
+En el png estará incluida una lista de alumnos que el jugador deberá inspeccionar para validar los datos. Por cada lista con las variables habra un clon con valores falsos. Basta que un valor sea falsa para darle al inspector uno de cinco strikes al final de cada dia, donde se deberá mostrar además un resumen de los inspeccionados y en que se fallo. 
+
+Si se llega a los 5 strikes, aparecerá una pantalla tipo GAME OVER que mostrara al inspector siendo expulsado de la universidad, con la típica simbología de caricatura de un pie pateándole el traste por la puerta.
+
+Si pasan los 5 días sin llegar a los 5 strikes, aparecerá una pantalla de victoria en la que el inspector tiene el sueldo depositado en la cuenta.
+
+El padron debe generar hasta 16 estudiantes, entre los que estarán ocultos los 8 estudiantes que pasaran por la validación
+
+En el png del escritorio, en un espacio sobre la ficha de estudiante, habrá un lugar en el que, de hacer click, se superpondrá un sello que validara el acceso al estudiante a la institución. En la misma ficha, otro espacio expondrá la posibilidad de poner un sello de desaprobación. 
+
+Se debe dejar pasar un pequeño tiempo entre estudiante para que no sea tan brusco. Apenas 5 segundos. 
+
+
+-------------------------------------------
+Validaciones
+
+Del lado del estudiante: Presenta el DNI
+
+Del lado del Inspector: La Ficha de Alumno y el papel gigante este que no me acuerdo como se llamaba
+
+nombre (DNI) ----> nombre (Ficha)
+
+apellido (DNI) ----> apellido(Ficha)
+
+fecha Nacimiento (DNI) ------> Edad (Ficha)
+
+nro Documento (DNI) ------> DNI (Ficha)
+
+Legajo (Ficha) -----> se comprueba que el legajo figure en el papel gigante. Al no haber nombres ni apellidos en el papel gigante se debe buscar la Carrera y las demás cosas mediante el Legajo, si el legajo no figura, lo otro tampoco, pero que el legajo figure no quiere decir que lo demás este bien.
+
+Carrera (Ficha) -----> Carrera papel gigante y que coincida con el legajo
+
+Condición : Si esta Cursando todo bien, si esta en Libre todo mal
+
+Turno ------> depende del estado del reloj cuando el estudiante aparezca. 
