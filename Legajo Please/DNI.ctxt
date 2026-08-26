@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=DNI
+comment1.params=ancho\ alto
+comment1.target=DNI(int,\ int)
+comment2.params=datos
+comment2.target=void\ mostrarDatos(DatosEstudiante)
+numComments=3

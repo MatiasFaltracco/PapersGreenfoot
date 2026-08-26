@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=GeneradorEstudiante
+comment0.text=\r\n\ Contiene\ las\ listas\ base\ de\ datos,\ genera\ y\ guarda\ las\ 22\ filas\ del\r\n\ Cuadernillo\ (fuente\ de\ verdad,\ fija\ durante\ toda\ la\ partida),\ y\ produce\r\n\ estudiantes\ nuevos\ al\ azar\ cada\ vez\ que\ se\ le\ pide\ uno.\r\n\ \r\n\ Es\ agn\u00F3stico\ a\ la\ cantidad\ de\ estudiantes\ que\ se\ vayan\ a\ mostrar\:\ cada\r\n\ llamada\ a\ generarSiguiente()\ arma\ un\ DatosEstudiante\ independiente.\r\n
+comment1.params=
+comment1.target=GeneradorEstudiante()
+comment10.params=
+comment10.target=java.util.List\ getCuadernillo()
+comment2.params=
+comment2.target=void\ generarCuadernilloYJugables()
+comment3.params=lista
+comment3.target=java.lang.String\ elegirAlAzar(java.lang.String[])
+comment4.params=lista\ actual
+comment4.target=java.lang.String\ otroDistinto(java.lang.String[],\ java.lang.String)
+comment5.params=
+comment5.target=java.lang.String\ generarDni()
+comment6.params=
+comment6.target=java.lang.String\ generarFechaCaducidad()
+comment7.params=
+comment7.target=java.lang.String\ generarFechaNacimientoValida()
+comment7.text=\r\n\ Genera\ una\ fecha\ de\ nacimiento\ que\ respeta\ la\ regla\ fija\:\r\n\ no\ debe\ superar\ el\ 21/07/2010.\r\n
+comment8.params=dia\ mes\ anio
+comment8.target=java.lang.String\ formatearFecha(int,\ int,\ int)
+comment9.params=min\ max\ cantidad
+comment9.target=java.util.List\ legajosUnicosEnRango(int,\ int,\ int)
+numComments=11

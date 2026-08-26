@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Documento
+comment0.text=\r\n\ Padre\ com\u00FAn\ de\ los\ documentos\ que\ muestran\ datos\ superpuestos\ sobre\ la\r\n\ escena\ (DNI,\ FichaEstudiante,\ Cuadernillo).\ Cada\ hijo\ mantiene\ su\ propia\r\n\ imagen\ base\ (la\ casilla/documento\ vac\u00EDo\ o\ transparente)\ y\ redibuja\ todos\r\n\ sus\ campos\ de\ texto\ sobre\ una\ copia\ de\ esa\ imagen\ cada\ vez\ que\ cambian\r\n\ los\ datos\ a\ mostrar.\r\n
+comment1.params=imagenBase
+comment1.target=Documento(greenfoot.GreenfootImage)
+comment2.params=ancho\ alto
+comment2.target=Documento(int,\ int)
+comment3.params=
+comment3.target=greenfoot.GreenfootImage\ nuevaImagenLimpia()
+comment3.text=\r\n\ Reinicia\ la\ imagen\ visible\ a\ una\ copia\ limpia\ de\ la\ base,\ para\ poder\r\n\ volver\ a\ dibujar\ todos\ los\ campos\ desde\ cero\ sin\ acumular\ texto\ viejo.\r\n
+comment4.params=imagen\ texto\ x\ y
+comment4.target=void\ dibujarCampo(greenfoot.GreenfootImage,\ java.lang.String,\ int,\ int)
+comment4.text=\r\n\ Dibuja\ un\ campo\ de\ texto\ en\ una\ posici\u00F3n\ interna\ (relativa\ a\ la\r\n\ imagen\ del\ documento,\ no\ a\ coordenadas\ del\ mundo).\r\n
+numComments=5
