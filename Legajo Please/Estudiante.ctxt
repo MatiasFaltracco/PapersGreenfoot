@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Estudiante
+comment1.params=
+comment1.target=Estudiante()
+comment2.params=
+comment2.target=greenfoot.GreenfootImage\ elegirSprite()
+comment3.params=
+comment3.target=void\ reescalar()
+comment4.params=
+comment4.target=void\ act()
+numComments=5
