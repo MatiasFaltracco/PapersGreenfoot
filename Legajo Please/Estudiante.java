@@ -7,7 +7,7 @@ public class Estudiante extends Actor
     private final int tamaño_final = 250;
     private final int posicion_X_final = 450; // Posición X frente al escritorio
     private final int velocidad_crecimiento = 2; 
-
+    
     // se guarda la imagen original en memoria como plantilla
     private final GreenfootImage imagenOriginal = elegirSprite();
 

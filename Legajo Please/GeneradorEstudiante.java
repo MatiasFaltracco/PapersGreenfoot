@@ -132,7 +132,9 @@ public class GeneradorEstudiante
     public DatosEstudiante generarSiguiente()
     {
         DatosEstudiante base = estudiantesJugables.get(Greenfoot.getRandomNumber(estudiantesJugables.size()));
-
+        
+        
+        
         boolean esVerdadero = Greenfoot.getRandomNumber(2) == 0; // 50/50, ajustable
         if (esVerdadero) {
             // Se devuelve una copia idéntica (mismos datos, mismo legajo real)
@@ -144,6 +146,7 @@ public class GeneradorEstudiante
         }
 
         String campoFalso = elegirAlAzar(CAMPOS_FALSEABLES);
+        
         return generarConCampoFalso(base, campoFalso);
     }
 
