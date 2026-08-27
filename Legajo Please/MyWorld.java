@@ -2,24 +2,26 @@ import greenfoot.*;
 
 public class MyWorld extends World
 {
-    // Lienzos transparentes para alojar los textos
-    private static final int DNI_ANCHO = 160, DNI_ALTO = 150;
-    private static final int FICHA_ANCHO = 170, FICHA_ALTO = 200;
-    private static final int CUADERNILLO_ANCHO = 400, CUADERNILLO_ALTO = 200;
+    // Tamaños de los lienzos
+    private static final int DNI_ANCHO = 234, DNI_ALTO = 221;
+    private static final int FICHA_ANCHO = 249, FICHA_ALTO = 294;
+    private static final int CUADERNILLO_ANCHO = 585, CUADERNILLO_ALTO = 294;
 
-    // Centros exactos de las cajas en la imagen de fondo
-    private static final int DNI_X = 80, DNI_Y = 570;
-    private static final int FICHA_X = 242, FICHA_Y = 592;
-    private static final int CUADERNILLO_X = 520, CUADERNILLO_Y = 592;
+    // Centros X e Y de los documentos
+    private static final int DNI_X = 117, DNI_Y = 838;
+    private static final int FICHA_X = 354, FICHA_Y = 871;
+    private static final int CUADERNILLO_X = 761, CUADERNILLO_Y = 871;
 
-    // Posiciones de los botones de validación (éstos estaban perfectos)
-    private static final int INVALIDAR_X = 48, INVALIDAR_Y = 640;
-    private static final int VALIDAR_X = 122, VALIDAR_Y = 640;
+    // Botones de validación
+    private static final int INVALIDAR_X = 70, INVALIDAR_Y = 941;
+    private static final int VALIDAR_X = 179, VALIDAR_Y = 941;
 
-    private static final int ESTUDIANTE_X = 260, ESTUDIANTE_Y = 310;
+    // Posición del estudiante (sprite)
+    private static final int ESTUDIANTE_X = 380, ESTUDIANTE_Y = 456;
 
     private GeneradorEstudiante generador;
     private DatosEstudiante estudianteActual;
+    
 
     private DNI dni;
     private FichaEstudiante ficha;
@@ -31,10 +33,11 @@ public class MyWorld extends World
 
     public MyWorld()
     {
-        super(924, 680, 1);
+        super(1352, 1000, 1);
 
         generador = new GeneradorEstudiante();
-
+        
+        
         dni = new DNI(DNI_ANCHO, DNI_ALTO);
         addObject(dni, DNI_X, DNI_Y);
 
@@ -44,21 +47,23 @@ public class MyWorld extends World
         cuadernillo = new Cuadernillo(CUADERNILLO_ANCHO, CUADERNILLO_ALTO);
         addObject(cuadernillo, CUADERNILLO_X, CUADERNILLO_Y);
         cuadernillo.mostrarFilas(generador.getCuadernillo());
-
-        GreenfootImage imgInvalidar = new GreenfootImage(30, 30);
-        imgInvalidar.setColor(Color.RED);
+        
+        Color trasparente = new Color(0,0,0,0);
+        GreenfootImage imgInvalidar = new GreenfootImage(50, 50);
+        imgInvalidar.setColor(trasparente);
         imgInvalidar.fill();
         CasillaValidacion casillaInvalidar = new CasillaValidacion(false, imgInvalidar);
         addObject(casillaInvalidar, INVALIDAR_X, INVALIDAR_Y);
 
-        GreenfootImage imgValidar = new GreenfootImage(30, 30);
-        imgValidar.setColor(Color.GREEN);
+        GreenfootImage imgValidar = new GreenfootImage(50, 50);
+        imgValidar.setColor(trasparente);
         imgValidar.fill();
         CasillaValidacion casillaValidar = new CasillaValidacion(true, imgValidar);
         addObject(casillaValidar, VALIDAR_X, VALIDAR_Y);
-
+        
+        //Posicion del Reloj
         RelojTimer reloj = new RelojTimer();
-        addObject(reloj, 600, 100);
+        addObject(reloj, 800, 150);
 
         siguienteEstudiante();
     }
