@@ -7,8 +7,8 @@ public class RelojTimer extends Actor {
     private final long miliseg_por_minuto = 60000L;
     
     // Define aquí el tamaño fijo que quieres para el reloj
-    private static final int ancho_reloj = 100;
-    private static final int alto_reloj = 100;
+    private static final int ancho_reloj = 150;
+    private static final int alto_reloj = 150;
 
     // Nombres de los archivos
     private String[] nombresImagenes = {

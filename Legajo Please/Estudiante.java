@@ -2,10 +2,10 @@ import greenfoot.*;
 
 public class Estudiante extends Actor
 {
-    private int anchoActual = 150;
-    private int altoActual = 293;
-    private final int tamaño_final = 250;
-    private final int posicion_X_final = 450; // Posición X frente al escritorio
+    private int anchoActual = 250;
+    private int altoActual = 430;
+    private final int tamaño_final = 400;
+    private final int posicion_X_final = 600; // Posición X frente al escritorio
     private final int velocidad_crecimiento = 2; 
 
     // se guarda la imagen original en memoria como plantilla
@@ -18,8 +18,9 @@ public class Estudiante extends Actor
     public GreenfootImage elegirSprite(){
         GreenfootImage[] imagenes = {
             new GreenfootImage("images/Personajes/P1.png"),
-            new GreenfootImage("images/Personajes/P2.jpg"),
-            new GreenfootImage("images/Personajes/P3.jpg")
+            new GreenfootImage("images/Personajes/P2.png"),
+            new GreenfootImage("images/Personajes/P3.png"),
+            new GreenfootImage("images/Personajes/P4.png"),
         };
         
         int indice = Greenfoot.getRandomNumber(imagenes.length);

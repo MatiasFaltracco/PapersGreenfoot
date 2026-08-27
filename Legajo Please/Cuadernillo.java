@@ -14,22 +14,22 @@ public class Cuadernillo extends Documento
     private int yInicial = 12; 
     
     // Y: Espacio vertical entre renglón y renglón
-    private int alturaFila = 15; 
+    private int alturaFila = 22; 
     
     // X: Posiciones de izquierda a derecha de las 4 columnas de la PÁGINA IZQUIERDA
     // Orden: Legajo, Carrera, Turno, Condición
-    private int[] xColPagIzquierda = { 12, 43, 78, 115 };
+    private int[] xColPagIzquierda = { 18, 62, 114, 164 };
     
     // X: Posiciones de izquierda a derecha de las 4 columnas de la PÁGINA DERECHA
     // Orden: Legajo, Carrera, Turno, Condición
-    private int[] xColPagDerecha   = { 190, 220, 255, 288 };
+    private int[] xColPagDerecha   = { 278, 320, 370, 418 };
 
     // =========================================================
 
     public Cuadernillo(int ancho, int alto)
     {
         super(ancho, alto);
-        tamañoFuente = 8;
+        tamañoFuente = 10;
     }
 
     public void mostrarFilas(List<GeneradorEstudiante.FilaCuadernillo> filas)
