@@ -8,5 +8,5 @@ comment3.params=datos
 comment3.target=void\ mostrarDatos(DatosEstudiante)
 comment4.params=nombreCompleto
 comment4.target=java.lang.String\ acortarCarrera(java.lang.String)
-comment4.text=\r\n\ M\u00E9todo\ auxiliar\ para\ resumir\ carreras\ largas\ y\ evitar\ que\ \r\n\ el\ texto\ invada\ la\ columna\ de\ al\ lado\ o\ el\ espiral\ central.\r\n
+comment4.text=\n\ M\u00E9todo\ auxiliar\ para\ resumir\ carreras\ largas\ y\ evitar\ que\ \n\ el\ texto\ invada\ la\ columna\ de\ al\ lado\ o\ el\ espiral\ central.\n
 numComments=5

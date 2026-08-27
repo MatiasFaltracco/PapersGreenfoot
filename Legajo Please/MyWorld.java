@@ -13,13 +13,14 @@ public class MyWorld extends World
     private static final int CUADERNILLO_X = 520, CUADERNILLO_Y = 592;
 
     // Posiciones de los botones de validación (éstos estaban perfectos)
-    private static final int INVALIDAR_X = 48, INVALIDAR_Y = 640;
-    private static final int VALIDAR_X = 122, VALIDAR_Y = 640;
+    private static final int INVALIDAR_X = 48, INVALIDAR_Y = 630;
+    private static final int VALIDAR_X = 112, VALIDAR_Y = 630;
 
     private static final int ESTUDIANTE_X = 260, ESTUDIANTE_Y = 310;
 
     private GeneradorEstudiante generador;
     private DatosEstudiante estudianteActual;
+    
 
     private DNI dni;
     private FichaEstudiante ficha;
@@ -34,7 +35,8 @@ public class MyWorld extends World
         super(924, 680, 1);
 
         generador = new GeneradorEstudiante();
-
+        
+        
         dni = new DNI(DNI_ANCHO, DNI_ALTO);
         addObject(dni, DNI_X, DNI_Y);
 
@@ -44,15 +46,16 @@ public class MyWorld extends World
         cuadernillo = new Cuadernillo(CUADERNILLO_ANCHO, CUADERNILLO_ALTO);
         addObject(cuadernillo, CUADERNILLO_X, CUADERNILLO_Y);
         cuadernillo.mostrarFilas(generador.getCuadernillo());
-
-        GreenfootImage imgInvalidar = new GreenfootImage(30, 30);
-        imgInvalidar.setColor(Color.RED);
+        
+        Color trasparente = new Color(0,0,0,0);
+        GreenfootImage imgInvalidar = new GreenfootImage(50, 50);
+        imgInvalidar.setColor(trasparente);
         imgInvalidar.fill();
         CasillaValidacion casillaInvalidar = new CasillaValidacion(false, imgInvalidar);
         addObject(casillaInvalidar, INVALIDAR_X, INVALIDAR_Y);
 
-        GreenfootImage imgValidar = new GreenfootImage(30, 30);
-        imgValidar.setColor(Color.GREEN);
+        GreenfootImage imgValidar = new GreenfootImage(50, 50);
+        imgValidar.setColor(trasparente);
         imgValidar.fill();
         CasillaValidacion casillaValidar = new CasillaValidacion(true, imgValidar);
         addObject(casillaValidar, VALIDAR_X, VALIDAR_Y);
