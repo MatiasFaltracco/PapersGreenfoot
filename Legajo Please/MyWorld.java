@@ -88,8 +88,16 @@ public class MyWorld extends World
             aciertos++;
         } else {
             errores++;
+            verificarLimiteFallos(errores);
+            
         }
         siguienteEstudiante();
+    }
+    
+    private void verificarLimiteFallos(int contador){
+        if (contador == 5) {
+            Greenfoot.setWorld(new GameOver());
+        }
     }
 
     public int getAciertos() { return aciertos; }
