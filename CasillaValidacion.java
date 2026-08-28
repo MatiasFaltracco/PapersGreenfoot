@@ -28,10 +28,10 @@ public void act() {
     if (Greenfoot.mouseClicked(this)) {
         MyWorld mundo = (MyWorld) getWorld();
         
-        for (int tamano = 300; tamano >= 120; tamano -= 60) {
+        for (int tamano = 150; tamano >= 50; tamano -= 33) {
             
             GreenfootImage sello = marcas[0];
-            sello.scale(tamano, tamano / 2);
+            sello.scale(tamano, tamano/2+ tamano/4);
             setImage(sello);
             
             Greenfoot.delay(5); 

@@ -4,4 +4,6 @@ comment0.text=\n\ Write\ a\ description\ of\ class\ GameFinished\ here.\n\ \n\ @
 comment1.params=
 comment1.target=GameFinished()
 comment1.text=\n\ Constructor\ for\ objects\ of\ class\ GameFinished.\n\ \n
-numComments=2
+comment2.params=
+comment2.target=void\ cambiarPantalla()
+numComments=3

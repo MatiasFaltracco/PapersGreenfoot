@@ -32,8 +32,7 @@ public class MyWorld extends World
 
     public MyWorld()
     {
-        super(924, 680, 1);
-
+        super(1000, 680, 1); 
         generador = new GeneradorEstudiante();
         
         
@@ -95,15 +94,21 @@ public class MyWorld extends World
     
     private void verificarLimiteFallos(int contador){
         if (contador == 5) {
-            Greenfoot.setWorld(new GameOver());
+            cambiarPantalla(new GameOver());
         }
     }
     
     private void verificarLimiteAciertos(int contador){
         if (contador == 15) {
-            Greenfoot.setWorld(new GameFinished());
+            cambiarPantalla(new GameFinished());
         }
     }
+    
+    public void cambiarPantalla(Mundo siguientePantalla){
+        Greenfoot.setWorld(siguientePantalla);
+        Greenfoot.delay(20);
+    }
+    
     public int getAciertos() { return aciertos; }
     public int getErrores() { return errores; }
 }

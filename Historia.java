@@ -1,22 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameFinished here.
+ * Write a description of class Historia here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GameFinished extends Mundo
+public class Historia extends Mundo
 {
 
-    /**
-     * Constructor for objects of class GameFinished.
-     * 
-     */
-    public GameFinished()
+   
+    public Historia()
     {    
-        Boton inicio = new Boton(new GreenfootImage("Reset.png"));
-        addObject(inicio, 500,600);
+        GreenfootImage botonImagen = new GreenfootImage("Next.png");
+        botonImagen.scale(150, 90);
+        Boton inicio = new Boton(botonImagen);
+    
+        addObject(inicio, 500,635);    
     }
     @Override
     public void cambiarPantalla(){

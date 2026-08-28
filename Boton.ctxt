@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Boton
+comment0.text=\n\ Write\ a\ description\ of\ class\ Boton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=imagen
+comment1.target=Boton(greenfoot.GreenfootImage)
+comment2.params=
+comment2.target=void\ act()
+numComments=3

@@ -6,24 +6,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Start extends World
+public class PantallaInicio extends Mundo
 {
 
     /**
      * Constructor for objects of class Start.
      * 
      */
-    public Start()
+    public PantallaInicio()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(924, 680, 1);
-        
-        BotonStart inicio = new BotonStart();
-        addObject(inicio, 462,335);
+
+        Boton inicio = new Boton(new GreenfootImage("BotonStart.png"));
+        addObject(inicio, 500,600);
     }
     
+    @Override
     public void cambiarPantalla(){
-        Greenfoot.setWorld(new MyWorld());
+        Greenfoot.setWorld(new Historia());
         Greenfoot.delay(20);
     }
 }
+

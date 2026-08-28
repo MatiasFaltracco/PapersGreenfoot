@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GameOver extends World
+public class GameOver extends Mundo
 {
 
     /**
@@ -15,7 +15,13 @@ public class GameOver extends World
      */
     public GameOver()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(924, 680, 1);
+        Boton inicio = new Boton(new GreenfootImage("Reset.png"));
+        addObject(inicio, 500,600);
+    }
+    
+    @Override
+    public void cambiarPantalla(){
+         Greenfoot.setWorld(new MyWorld());
+         Greenfoot.delay(20);
     }
 }
