@@ -84,6 +84,7 @@ public class MyWorld extends World
         boolean deberiaValidarse = estudianteActual.deberiaSerValidado();
         if (jugadorValido == deberiaValidarse) {
             aciertos++;
+            verificarLimiteAciertos(aciertos);
         } else {
             errores++;
             verificarLimiteFallos(errores);
@@ -97,7 +98,12 @@ public class MyWorld extends World
             Greenfoot.setWorld(new GameOver());
         }
     }
-
+    
+    private void verificarLimiteAciertos(int contador){
+        if (contador == 15) {
+            Greenfoot.setWorld(new GameFinished());
+        }
+    }
     public int getAciertos() { return aciertos; }
     public int getErrores() { return errores; }
 }
