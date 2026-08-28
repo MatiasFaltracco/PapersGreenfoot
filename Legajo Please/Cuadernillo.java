@@ -10,19 +10,15 @@ public class Cuadernillo extends Documento
     // Modifica estos números si necesitas mover los textos.
     // =========================================================
     
-    // Y: Altura de la primera fila (para que caiga sobre el primer renglón dibujado)
-    private int yInicial = 12; 
-    
-    // Y: Espacio vertical entre renglón y renglón
+    // Y: Altura y espacio
+    private int yInicial = 47; 
     private int alturaFila = 22; 
     
-    // X: Posiciones de izquierda a derecha de las 4 columnas de la PÁGINA IZQUIERDA
-    // Orden: Legajo, Carrera, Turno, Condición
-    private int[] xColPagIzquierda = { 18, 62, 114, 164 };
+    // X: Posiciones de la PÁGINA IZQUIERDA
+    private int[] xColPagIzquierda = { 35, 85, 132, 185 };
     
-    // X: Posiciones de izquierda a derecha de las 4 columnas de la PÁGINA DERECHA
-    // Orden: Legajo, Carrera, Turno, Condición
-    private int[] xColPagDerecha   = { 278, 320, 370, 418 };
+    // X: Posiciones de la PÁGINA DERECHA (Saltando el espiral central)
+    private int[] xColPagDerecha   = { 300, 342, 390, 440 };
 
     // =========================================================
 

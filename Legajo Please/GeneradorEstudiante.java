@@ -26,7 +26,7 @@ public class GeneradorEstudiante
     };
 
     private static final String[] CARRERAS = {
-        "Ing. Civil", "Ing. en Sistemas de Información", "Ing. Electrónica",
+        "Ing. Civil", "Ing. en Sistemas", "Ing. Electrónica",
         "Ing. Mecánica", "Ing. Química"
     };
 
@@ -131,20 +131,20 @@ public class GeneradorEstudiante
      */
     public DatosEstudiante generarSiguiente()
     {
-        DatosEstudiante base = estudiantesJugables.get(Greenfoot.getRandomNumber(estudiantesJugables.size()));
-
-        boolean esVerdadero = Greenfoot.getRandomNumber(2) == 0; // 50/50, ajustable
-        if (esVerdadero) {
-            // Se devuelve una copia idéntica (mismos datos, mismo legajo real)
-            return new DatosEstudiante(
-                base.getNombre(), base.getApellido(), base.getDni(), base.getFechaNacimiento(),
-                base.getPais(), base.getProvincia(), base.getCaducidad(), base.getLegajo(),
-                base.getCarrera(), base.getTurno(), base.getRegularidad(), true, null
-            );
-        }
-
-        String campoFalso = elegirAlAzar(CAMPOS_FALSEABLES);
-        return generarConCampoFalso(base, campoFalso);
+    DatosEstudiante base = estudiantesJugables.get(Greenfoot.getRandomNumber(estudiantesJugables.size()));
+    boolean esVerdadero = Greenfoot.getRandomNumber(2) == 0; // 50/50, ajustable
+    if (esVerdadero) {
+        // Se devuelve una copia idéntica (mismos datos, mismo legajo real)
+        System.out.println("Es verdadero");
+        return new DatosEstudiante(
+            base.getNombre(), base.getApellido(), base.getDni(), base.getFechaNacimiento(),
+            base.getPais(), base.getProvincia(), base.getCaducidad(), base.getLegajo(),
+            base.getCarrera(), base.getTurno(), base.getRegularidad(), true, null
+        );
+    }
+    String campoFalso = elegirAlAzar(CAMPOS_FALSEABLES);
+    System.out.println("Es Falso");
+    return generarConCampoFalso(base, campoFalso);
     }
 
     private DatosEstudiante generarConCampoFalso(DatosEstudiante base, String campoFalso)

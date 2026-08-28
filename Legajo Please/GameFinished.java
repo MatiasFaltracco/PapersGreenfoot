@@ -1,24 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameOver here.
+ * Write a description of class GameFinished here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GameOver extends Mundo
+public class GameFinished extends Mundo
 {
 
     /**
-     * Constructor for objects of class GameOver.
+     * Constructor for objects of class GameFinished.
      * 
      */
-    public GameOver()
+    public GameFinished()
     {    
         Boton inicio = new Boton(new GreenfootImage("Reset.png"));
         addObject(inicio, 750,900);
     }
-    
     @Override
     public void cambiarPantalla(){
          Greenfoot.setWorld(new MyWorld());

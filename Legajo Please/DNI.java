@@ -13,13 +13,13 @@ public class DNI extends Documento
     {
         GreenfootImage imagen = nuevaImagenLimpia();
 
-        dibujarCampo(imagen, datos.getNombre(),                132, 14);
-        dibujarCampo(imagen, datos.getApellido(),              136, 28);
-        dibujarCampo(imagen, datos.getDni(),                   132, 42);
-        dibujarCampo(imagen, datos.getFechaNacimiento(),       154, 56);
-        dibujarCampo(imagen, datos.getPais(),                  132, 68);
-        dibujarCampo(imagen, datos.getProvincia(),             139, 82);
-        dibujarCampo(imagen, datos.getCaducidad(),             143, 96);
+        dibujarCampo(imagen, datos.getNombre(),                170, 57);
+        dibujarCampo(imagen, datos.getApellido(),              170, 77);
+        dibujarCampo(imagen, datos.getDni(),                   170, 95);
+        dibujarCampo(imagen, datos.getFechaNacimiento(),       195, 113);
+        dibujarCampo(imagen, datos.getPais(),                  170,  130);
+        dibujarCampo(imagen, datos.getProvincia(),             185, 147);
+        dibujarCampo(imagen, datos.getCaducidad(),             185, 164);
         setImage(imagen);
     }
 }
