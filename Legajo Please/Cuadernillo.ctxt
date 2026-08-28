@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Cuadernillo
+comment0.text=\ A\ diferencia\ de\ DNI\ y\ FichaEstudiante\ que\ se\ dibujan/actualizan\ por\ cada\ nuevo\ Estudiante,\ Cuadernillo\ dibuja\ sus\ datos\ una\ unica\ vez\r\n\ Esto\ es\ debido\ a\ que\ Cuadernillo\ contiene\ todos\ los\ legajos\ plausibles\ o\ validos\ a\ comparar.\ No\ se\ encuentra\ ningun\ dato\ falso\ en\ el\r\n\ Es\ la\ herramienta\ principal\ del\ juego\r\n
 comment1.params=ancho\ alto
 comment1.target=Cuadernillo(int,\ int)
 comment2.params=filas
@@ -8,5 +9,4 @@ comment3.params=datos
 comment3.target=void\ mostrarDatos(DatosEstudiante)
 comment4.params=nombreCompleto
 comment4.target=java.lang.String\ acortarCarrera(java.lang.String)
-comment4.text=\r\n\ M\u00E9todo\ auxiliar\ para\ resumir\ carreras\ largas\ y\ evitar\ que\ \r\n\ el\ texto\ invada\ la\ columna\ de\ al\ lado\ o\ el\ espiral\ central.\r\n
 numComments=5

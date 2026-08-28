@@ -19,5 +19,6 @@ public abstract class Mundo extends World
         super(1352, 1000, 1); 
     }
     
+    // Metodo a ser definido a su manera por las clases hijas (las distintas pantallas y redirecciones de escenario). Se dispara por la clase Boton. Osea, aprovecha el polimorfismo
     public abstract void cambiarPantalla();
 }

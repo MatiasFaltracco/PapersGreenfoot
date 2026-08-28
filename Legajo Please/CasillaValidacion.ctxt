@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CasillaValidacion
-comment0.text=\r\n\ Casilla\ clickeable\ del\ recuadro\ "Validaci\u00F3n".\ Se\ instancian\ dos\ objetos\r\n\ de\ esta\ misma\ clase\:\ uno\ para\ Validado\ y\ otro\ para\ Invalidado,\ indicando\r\n\ con\ el\ flag\ esValidar\ cu\u00E1l\ decisi\u00F3n\ representa\ cada\ uno.\r\n\ \r\n\ Al\ hacer\ click,\ le\ informa\ a\ MyWorld\ la\ decisi\u00F3n\ tomada\ para\ que\ este\r\n\ la\ compare\ contra\ el\ estudiante\ actual\ y\ pase\ al\ siguiente.\r\n
+comment0.text=\r\n\ Casilla\ clickeable\ del\ recuadro\ "Validaci\u00F3n".\ Se\ instancian\ dos\ objetos\r\n\ de\ esta\ misma\ clase\:\ uno\ para\ Validado\ y\ otro\ para\ Invalidado,\ indicando\r\n\ con\ el\ flag\ esValidar\ cu\u00E1l\ decisi\u00F3n\ representa\ cada\ uno.\r\n\ \r\n\ Al\ hacer\ click,\ le\ informa\ a\ MyWorld\ la\ decisi\u00F3n\ tomada\ para\ que\ este\ \ la\ compare\ contra\ el\ estudiante\ actual\ y\ pase\ al\ siguiente.\r\n\r\n
 comment1.params=esValidar\ imagen
 comment1.target=CasillaValidacion(boolean,\ greenfoot.GreenfootImage)
 comment2.params=

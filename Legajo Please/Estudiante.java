@@ -1,9 +1,12 @@
 import greenfoot.*;
 
 public class Estudiante extends Actor
-{
+{   
+    //tamaños iniciales de los sprites antes de reescalar y al momento 0 de instanciarse por MyWorld
     private int anchoActual = 250;
     private int altoActual = 430;
+    
+    // Tamaños finales/objetivos del reescalado para simular un acercamiento al escritorio.
     private final int tamaño_final = 400;
     private final int posicion_X_final = 600; // Posición X frente al escritorio
     private final int velocidad_crecimiento = 2; 
@@ -22,6 +25,7 @@ public class Estudiante extends Actor
         reescalar();
     }
     
+    // lista con las direcciones de las imagenes/sprites de los personajes
     public GreenfootImage elegirSprite(){
         GreenfootImage[] imagenes = {
             new GreenfootImage("images/Personajes/P1.png"),
@@ -40,17 +44,19 @@ public class Estudiante extends Actor
            
         };
         
+        //eleccion aleatoria de los sprites de personajes en lista
         int indice = Greenfoot.getRandomNumber(imagenes.length);
         return imagenes[indice];
     }
     
     public void reescalar() {
-        // Se clona la original y se escala 
+        // Se clona la  imagen original y se escala 
         GreenfootImage copia = new GreenfootImage(imagenOriginal);
         copia.scale(anchoActual, altoActual);
         setImage(copia);
     }
 
+    // Metodo usado para retirar la imagen del personaje en MyWorld si y solo si no se cumplen condiciones de victoria o derrota
     public void salir() {
         saliendo = true;
     }
@@ -64,7 +70,7 @@ public class Estudiante extends Actor
         }
 
         if (!saliendo) {
-            // === ANIMACIÓN DE ENTRADA (Original) ===
+            // Animacion de Entrada mediante reescalado (Ver metodo reescalar)
             if (anchoActual < tamaño_final) {
                 anchoActual += velocidad_crecimiento;
                 altoActual += velocidad_crecimiento;
@@ -82,7 +88,7 @@ public class Estudiante extends Actor
             }
         } 
         else {
-            // === ANIMACIÓN DE SALIDA (Inversa exacta) ===
+            // Animacion de Salida (la inversa)
             if (getX() > posicion_X_inicial) {
                 setLocation(getX() - velocidad_crecimiento, getY());
             } 
@@ -95,7 +101,7 @@ public class Estudiante extends Actor
                 setLocation(getX(), getY() + (velocidad_crecimiento / 2));
             } 
             else {
-                // Al finalizar la retirada, le avisa a MyWorld para cargar el siguiente
+                // Al finalizar la retirada, le avisa a MyWorld para cargar el siguiente personaje
                 MyWorld mundo = (MyWorld) getWorld();
                 if (mundo != null) {
                     mundo.siguienteEstudiante();

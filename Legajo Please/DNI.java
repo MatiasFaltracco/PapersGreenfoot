@@ -9,7 +9,7 @@ public class DNI extends Documento
     }
 
     @Override
-    public void mostrarDatos(DatosEstudiante datos)
+    public void mostrarDatos(DatosEstudiante datos)  //Se toman los datos de GenerarEstudiante y se emplea y redefine el Metodo heredado dibujarCampo
     {
         GreenfootImage imagen = nuevaImagenLimpia();
 

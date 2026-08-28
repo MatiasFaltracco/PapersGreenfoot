@@ -9,24 +9,24 @@ public class FichaEstudiante extends Documento
     }
 
     @Override
-    public void mostrarDatos(DatosEstudiante datos)
+    public void mostrarDatos(DatosEstudiante datos) ////Se toman los datos de GenerarEstudiante y se emplea y redefine el Metodo heredado dibujarCampo
     {
         GreenfootImage imagen = nuevaImagenLimpia();
 
         // 1. LEGAJO
-        dibujarCampo(imagen, String.valueOf(datos.getLegajo()),        96, 115);
+        dibujarCampo(imagen, String.valueOf(datos.getLegajo()),96, 115);
         // 2. NOMBRE Y APELLIDO
         dibujarCampo(imagen, datos.getNombre() + " " + datos.getApellido(), 96, 150);
         // 3. DNI
-        dibujarCampo(imagen, datos.getDni(),                           60, 175);
+        dibujarCampo(imagen, datos.getDni(), 60, 175);
         // 4. TURNO
-        dibujarCampo(imagen, datos.getTurno(),                         89, 200);
+        dibujarCampo(imagen, datos.getTurno(), 89, 200);
         // 5. REGULARIDAD (Si/No)
-        dibujarCampo(imagen, datos.getRegularidad(),                   165, 235);
+        dibujarCampo(imagen, datos.getRegularidad(), 165, 235);
         // 6. CADUCIDAD
-        dibujarCampo(imagen, datos.getCaducidad(),                     120, 260);
+        dibujarCampo(imagen, datos.getCaducidad(), 120, 260);
         // 7. CARRERA
-        dibujarCampo(imagen, datos.getCarrera(),                       90, 285);
+        dibujarCampo(imagen, datos.getCarrera(), 90, 285);
         setImage(imagen);
     }
 }

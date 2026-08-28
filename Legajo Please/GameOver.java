@@ -13,6 +13,8 @@ public class GameOver extends Mundo
      * Constructor for objects of class GameOver.
      * 
      */
+    
+    // Se extrae y posiciona la imagen para el boton Reset
     public GameOver()
     {    
         Boton inicio = new Boton(new GreenfootImage("Reset.png"));
@@ -20,6 +22,7 @@ public class GameOver extends Mundo
     }
     
     @Override
+    // Disparado por la clase Boton. Metodo para volver al juego en caso de GameOver
     public void cambiarPantalla(){
          Greenfoot.setWorld(new MyWorld());
          Greenfoot.delay(20);

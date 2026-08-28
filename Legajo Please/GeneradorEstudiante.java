@@ -2,21 +2,19 @@ import greenfoot.Greenfoot;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Contiene las listas base de datos, genera y guarda las 22 filas del
- * Cuadernillo (fuente de verdad, fija durante toda la partida), y produce
- * estudiantes nuevos al azar cada vez que se le pide uno.
- * 
- * Es agnóstico a la cantidad de estudiantes que se vayan a mostrar: cada
- * llamada a generarSiguiente() arma un DatosEstudiante independiente.
+/*
+ * Contiene las listas base de datos, genera y guarda las 22 filas del Cuadernillo (fuente de verdad, fija durante toda la partida),
+ * y produce estudiantes nuevos al azar cada vez que se le pide uno.
+ * Es agnóstico a la cantidad de estudiantes que se vayan a mostrar, cada llamada a generarSiguiente() arma un DatosEstudiante independiente.
  */
 public class GeneradorEstudiante
 {
-    // ---------- Listas base ----------
+    // Datos posibles a tomar
+    
     private static final String[] NOMBRES = {
-        "Nicolás", "Mateo", "Joaquín", "Lucas", "Santiago", "Agustín", "Facundo",
-        "Gonzalo", "Tomás", "Ignacio", "Valentín", "Martín", "Franco", "Ramiro",
-        "Bautista", "Jeremías", "Julián", "Ezequiel", "Gabriel", "Thiago"
+        "Nicolás", "Mateo", "Joaquín", "Lucas", "Santiago", "Agustína", "Facundo",
+        "Gonzalo", "Tomás", "Ignacio", "Valentina", "Martín", "Franco", "Ramiro",
+        "Bautista", "Jeremías", "Julia", "Ezequiel", "Gabriela", "Thiago"
     };
 
     private static final String[] APELLIDOS = {
@@ -42,16 +40,19 @@ public class GeneradorEstudiante
         "NOMBRE", "APELLIDO", "DNI", "LEGAJO", "CADUCIDAD", "CARRERA", "TURNO"
     };
 
-    // Rango de legajos
-    private static final int LEGAJO_PLAUSIBLE_MIN = 12000;
-    private static final int LEGAJO_PLAUSIBLE_MAX = 17999;
-    private static final int LEGAJO_INEXISTENTE_MIN = 18000;
-    private static final int LEGAJO_INEXISTENTE_MAX = 18999;
+    // Rango de legajos. Los plausibles y los falsos tienen rangos distintos.
+    private static final int legajo_plausible_min = 12000;
+    private static final int legajo_plausible_max = 17999;
+    private static final int legajo_falso_min = 18000;
+    private static final int legajo_falso_max = 18999;
+    
+    /* En el Cuadernillo, solamente 8 legajos (todos plausibles porque es el documento que usa el jugador para comparar)
+     * pertenecen a estudiantes que apareceran, los otros 14 son de relleno para despistar al jugador. 
+     */
+    private static final int cantidad_legajos_jugables = 8;
+    private static final int cantidad_legajos_relleno = 14;
 
-    private static final int CANTIDAD_JUGABLES = 8;
-    private static final int CANTIDAD_RELLENO = 14;
-
-    // ---------- Estado fijo generado al construir ----------
+    // ---------- Estado fijo generado al construir el Cuadernillo----------
     private List<FilaCuadernillo> cuadernillo;       // 22 filas, fuente de verdad
     private List<DatosEstudiante> estudiantesJugables; // los 8 reales completos
 
@@ -60,9 +61,9 @@ public class GeneradorEstudiante
         generarCuadernilloYJugables();
     }
 
-    /**
+    /*
      * Fila del Cuadernillo: Legajo, Carrera, Turno, Condición.
-     * No lleva nombre ni apellido (el Cuadernillo nunca revela identidad).
+     * No lleva nombre ni apellido (el Cuadernillo nunca revela identidad, si el legajo es verdadero, se navega por el legajo (en el juego).
      */
     public static class FilaCuadernillo
     {
@@ -87,12 +88,12 @@ public class GeneradorEstudiante
 
         // 22 legajos plausibles únicos, sorteados sin repetición
         List<Integer> legajosPlausibles = legajosUnicosEnRango(
-            LEGAJO_PLAUSIBLE_MIN, LEGAJO_PLAUSIBLE_MAX, CANTIDAD_JUGABLES + CANTIDAD_RELLENO
+            legajo_plausible_min, legajo_plausible_max, cantidad_legajos_jugables + cantidad_legajos_relleno
         );
 
         // Los primeros 8 son jugables (verdaderos), el resto es relleno
-        List<Integer> legajosJugables = legajosPlausibles.subList(0, CANTIDAD_JUGABLES);
-        List<Integer> legajosRelleno = legajosPlausibles.subList(CANTIDAD_JUGABLES, legajosPlausibles.size());
+        List<Integer> legajosJugables = legajosPlausibles.subList(0, cantidad_legajos_jugables);
+        List<Integer> legajosRelleno = legajosPlausibles.subList(cantidad_legajos_jugables, legajosPlausibles.size());
 
         // Generar los 8 estudiantes jugables completos (siempre Cursando, nunca Libre)
         for (int legajo : legajosJugables) {
@@ -124,19 +125,16 @@ public class GeneradorEstudiante
         }
     }
 
-    /**
-     * Genera un estudiante nuevo al azar: puede ser uno de los 8 jugables
-     * verdaderos tal cual, o una copia de uno de ellos con exactamente un
-     * campo alterado (falso).
-     */
+    //Metodo Generador de un estudiante nuevo al azar: puede ser uno de los 8 jugables verdaderos tal cual, o una copia de uno de ellos con uncampo alterado (falso).
+    
     public DatosEstudiante generarSiguiente()
     {
     DatosEstudiante base = estudiantesJugables.get(Greenfoot.getRandomNumber(estudiantesJugables.size()));
-    boolean esVerdadero = Greenfoot.getRandomNumber(2) == 0; // 50/50, ajustable
+    boolean esVerdadero = Greenfoot.getRandomNumber(2) == 0; // 50/50
     if (esVerdadero) {
         // Se devuelve una copia idéntica (mismos datos, mismo legajo real)
         System.out.println("Es verdadero");
-        return new DatosEstudiante(
+        return new DatosEstudiante(                                                             //ver gets al final de la clase DatosEstudiante)
             base.getNombre(), base.getApellido(), base.getDni(), base.getFechaNacimiento(),
             base.getPais(), base.getProvincia(), base.getCaducidad(), base.getLegajo(),
             base.getCarrera(), base.getTurno(), base.getRegularidad(), true, null
@@ -146,9 +144,12 @@ public class GeneradorEstudiante
     System.out.println("Es Falso");
     return generarConCampoFalso(base, campoFalso);
     }
-
+    
+    
+    //Metodo generador de un campo falso para un estudiante con esVerdadero = False
     private DatosEstudiante generarConCampoFalso(DatosEstudiante base, String campoFalso)
-    {
+    {   
+        // Se obtienen los datos de DatosEstudiante (ver gets al final de esa clase
         String nombre = base.getNombre();
         String apellido = base.getApellido();
         String dni = base.getDni();
@@ -163,28 +164,28 @@ public class GeneradorEstudiante
 
         switch (campoFalso) {
             case "NOMBRE":
-                nombre = otroDistinto(NOMBRES, nombre);
+                nombre = elegirOtro(NOMBRES, nombre);
                 break;
             case "APELLIDO":
-                apellido = otroDistinto(APELLIDOS, apellido);
+                apellido = elegirOtro(APELLIDOS, apellido);
                 break;
             case "DNI":
                 dni = generarDni(); // otro número de 8 dígitos, sin regla especial
                 break;
             case "LEGAJO":
-                // Legajo inexistente: no figura en ninguna fila del cuadernillo
-                legajo = LEGAJO_INEXISTENTE_MIN + Greenfoot.getRandomNumber(
-                    LEGAJO_INEXISTENTE_MAX - LEGAJO_INEXISTENTE_MIN + 1
+                // Legajo falso: no figura en ninguna fila del cuadernillo
+                legajo = legajo_falso_min + Greenfoot.getRandomNumber(
+                    legajo_falso_max - legajo_falso_min + 1
                 );
                 break;
             case "CADUCIDAD":
                 caducidad = generarFechaCaducidad(); // distinta a la del DNI real
                 break;
             case "CARRERA":
-                carrera = otroDistinto(CARRERAS, carrera);
+                carrera = elegirOtro(CARRERAS, carrera);
                 break;
             case "TURNO":
-                turno = otroDistinto(TURNOS, turno);
+                turno = elegirOtro(TURNOS, turno);
                 break;
         }
 
@@ -194,14 +195,14 @@ public class GeneradorEstudiante
         );
     }
 
-    // ---------- Utilidades de generación ----------
+    // Funciones auxiliares de generacion:
 
     private String elegirAlAzar(String[] lista)
     {
         return lista[Greenfoot.getRandomNumber(lista.length)];
     }
 
-    private String otroDistinto(String[] lista, String actual)
+    private String elegirOtro(String[] lista, String actual)
     {
         String elegido;
         do {
@@ -220,29 +221,27 @@ public class GeneradorEstudiante
     {
         int dia = 1 + Greenfoot.getRandomNumber(28);
         int mes = 1 + Greenfoot.getRandomNumber(12);
-        int anio = 2026 + Greenfoot.getRandomNumber(5); // 2026-2030
-        return formatearFecha(dia, mes, anio);
+        int año = 2026 + Greenfoot.getRandomNumber(5); // 2026-2030
+        return formatearFecha(dia, mes, año);
     }
 
-    /**
-     * Genera una fecha de nacimiento que respeta la regla fija:
-     * no debe superar el 21/07/2010.
-     */
+    //Genera una fecha de nacimiento que no supera el 21/07/2010, la pista para que el jugador se de cuenta esta en el calendario de la imagen de la escena
+    
     private String generarFechaNacimientoValida()
     {
         int dia = 1 + Greenfoot.getRandomNumber(28);
         int mes = 1 + Greenfoot.getRandomNumber(12);
-        int anio = 1995 + Greenfoot.getRandomNumber(16); // 1995-2010
+        int año = 1985 + Greenfoot.getRandomNumber(16); // 1985-2010
 
-        if (anio == 2010 && (mes > 7 || (mes == 7 && dia > 21))) {
-            anio = 2009;
+        if (año == 2010 && (mes > 7 || (mes == 7 && dia > 21))) {
+            año = 2009;
         }
-        return formatearFecha(dia, mes, anio);
+        return formatearFecha(dia, mes, año);
     }
 
-    private String formatearFecha(int dia, int mes, int anio)
+    private String formatearFecha(int dia, int mes, int año)
     {
-        return String.format("%02d/%02d/%d", dia, mes, anio);
+        return String.format("%02d/%02d/%d", dia, mes, año);
     }
 
     private List<Integer> legajosUnicosEnRango(int min, int max, int cantidad)
@@ -259,8 +258,7 @@ public class GeneradorEstudiante
         return resultado;
     }
 
-    // ---------- Acceso para los Documentos ----------
-
+    // Acceso para el Cuadernillo
     public List<FilaCuadernillo> getCuadernillo()
     {
         return cuadernillo;

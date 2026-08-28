@@ -13,6 +13,8 @@ public class PantallaInicio extends Mundo
      * Constructor for objects of class Start.
      * 
      */
+    
+    // Se extrae y posiciona la imagen para el boton Start
     public PantallaInicio()
     {    
 
@@ -21,6 +23,7 @@ public class PantallaInicio extends Mundo
     }
     
     @Override
+    // Metodo disparado por Boton. Tras apretar Start en la pantalla de inicio, se pasa a la pantalla de contexto/historia
     public void cambiarPantalla(){
         Greenfoot.setWorld(new Historia());
         Greenfoot.delay(20);

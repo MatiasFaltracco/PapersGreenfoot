@@ -1,9 +1,6 @@
-/**
- * Agrupa todos los datos de un estudiante que aparece frente al mostrador.
- * No dibuja nada ni depende de Greenfoot: es un simple contenedor de datos.
- * 
- * Si el estudiante es falso, campoFalso indica cuál de sus campos no es
- * consistente con lo que debería ser (usado para saber si el inspector
+/*
+ * Agrupa todos los datos de un estudiante que aparece frente al mostrador. No hace nada, solamente contenedor de datos.
+ * Si el estudiante es falso, campoFalso indica cuál de sus campos no es consistente con lo que debería ser (usado para saber si el inspector
  * debe Validar o Invalidar). Si es verdadero, campoFalso es null.
  */
 public class DatosEstudiante
@@ -11,7 +8,7 @@ public class DatosEstudiante
     // Datos que aparecen en el DNI
     private String nombre;
     private String apellido;
-    private String dni;          // 8 dígitos, como String para conservar formato
+    private String dni;          // 8 dígitos, como String
     private String fechaNacimiento; // formato dd/MM/yyyy
     private String pais;
     private String provincia;
@@ -23,10 +20,13 @@ public class DatosEstudiante
     private String turno;        // "Mañana", "Mediodía", "Tarde", "Noche"
     private String regularidad;  // "Sí" o "No"
 
-    // Metadatos de generación (para saber si el inspector acierta o no)
-    private boolean esVerdadero;
+    // datos de generación (para saber si el jugador acierta o no)
+    private boolean esVerdadero;    // Con cada generacion (GenerarEstudiante) ya se determinara si se es valido o no, no hay una verificacion de todos los valores al momento de la validacion
+    
+    // contendor de los posibles datos a presentarse como falsos
     private String campoFalso;   // "NOMBRE","APELLIDO","DNI","LEGAJO","CADUCIDAD","CARRERA","TURNO" o null
-
+    
+    //Constructor. Se asignan los datos para un Estudiante
     public DatosEstudiante(String nombre, String apellido, String dni, String fechaNacimiento,
                             String pais, String provincia, String caducidad, int legajo,
                             String carrera, String turno, String regularidad,
@@ -47,7 +47,7 @@ public class DatosEstudiante
         this.campoFalso = campoFalso;
     }
 
-    // Getters usados por los Documentos para dibujar los datos
+    // Gets usados por los Documentos (FichaEstudiante, DNI, Cuadernillo) para dibujar los datos
     public String getNombre() { return nombre; }
     public String getApellido() { return apellido; }
     public String getDni() { return dni; }
@@ -63,11 +63,10 @@ public class DatosEstudiante
     public boolean esVerdadero() { return esVerdadero; }
     public String getCampoFalso() { return campoFalso; }
 
-    /**
-     * El inspector "acierta" si valida a un estudiante verdadero
-     * o si invalida a uno falso. Este método central evita tener
-     * que re-derivar la validez comparando campo por campo en pantalla:
-     * ya la sabemos desde que el estudiante fue generado.
+    /*
+     * El jugador "acierta" si valida a un estudiante verdadero
+     * o si invalida a uno falso. Asi no se verifica la validez comparando campo por campo. Como se comento arriba, ya se sabe desde que se genera el estudiante
+     * Ver metodo registrarDecision en la clase MyWorld
      */
     public boolean deberiaSerValidado()
     {
